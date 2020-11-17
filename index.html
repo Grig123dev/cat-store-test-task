@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Cat Store</title>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="header__content">
+        <div class="header__top">
+          <nav class="header__nav">
+            <div class="header__nav_logo">
+              <img src="./assets/media/images/logo.png" alt="logo" class="header__nav_logo_img">
+            </div>
+            <ul class="header__nav_list">
+              <li class="header__nav_list_item">
+                <a href="#" class="header__nav_list_item_link">Main</a>
+              </li>
+              <li class="header__nav_list_item">
+                <a href="#" class="header__nav_list_item_link">Gallery</a>
+              </li>
+              <li class="header__nav_list_item">
+                <a href="#" class="header__nav_list_item_link">News</a>
+              </li>
+              <li class="header__nav_list_item">
+                <a href="#" class="header__nav_list_item_link">Profile</a>
+              </li>
+            </ul>
+          </nav>
+          <p class="header__contact">
+            +544 3490 00000
+            <span class="header__contact_additional">
+              Звони скорее!
+            </span>
+          </p>
+        </div>
+        <p class="header__bottom">
+          Найдено 349 котов
+        </p>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="sort">
+      <div class="container">
+        <div class="sort__content">
+          <span class="sort__text">
+            Сортировать по:
+          </span>
+          <button class="sort__price">
+            <span class="sort__price_text">Цене</span>
+            <img src="./assets/media/icons/chevron-down.svg" alt="" class="sort__price_icon">
+          </button>
+          <button class="sort__old">
+            <span class="sort__price_text">Возрасту</span>
+            <img src="./assets/media/icons/chevron-down.svg" alt="" class="sort__old_icon">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="cats">
+      <div class="container">
+        <div class="cats__content">
+          <div class="cats__list"></div>
+          <button class="cats__showMore">
+            Показать еще 20
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__info">
+          <h4 class="footer__info_heading">
+            Успей купить!
+          </h4>
+          <h5 class="footer__info_subheading">
+            Подпишись и успей<br>словить все акции
+          </h5>
+        </div>
+        <form class="footer__form">
+          <div class="footer__form_fields">
+            <input type="email" class="footer__form_fields_input" placeholder="Email" required>
+            <button class="footer__form_fields_btn">
+              Подписаться
+            </button>
+          </div>
+          <label class="b-contain">
+            <span>Подписаться на новости</span>
+            <input type="checkbox" checked>
+            <div class="b-input"></div>
+          </label>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
