@@ -1,0 +1,20 @@
+@media only screen and (max-width: 1285px) {
+  .container {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .cats__list_cat {
+    width: calc(50% - 20px);
+  }
+  .cats__showMore {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .cats__list_cat {
+    width: 100%;
+  }
+}

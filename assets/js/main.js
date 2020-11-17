@@ -11,6 +11,7 @@ let cats = [
     price: 30000,
     isDiscount: 40,
     isSold: false,
+    isFavourite: false,
     img: "assets/media/images/cat1.png"
   },
   {
@@ -21,6 +22,7 @@ let cats = [
     price: 40000,
     isDiscount: false,
     isSold: true,
+    isFavourite: false,
     img: "assets/media/images/cat2.png"
   },
   {
@@ -31,6 +33,7 @@ let cats = [
     price: 20000,
     isDiscount: false,
     isSold: false,
+    isFavourite: false,
     img: "assets/media/images/cat3.png"
   },
   {
@@ -41,6 +44,7 @@ let cats = [
     price: 25000,
     isDiscount: false,
     isSold: false,
+    isFavourite: false,
     img: "assets/media/images/cat1.png"
   },
   {
@@ -51,6 +55,7 @@ let cats = [
     price: 30000,
     isDiscount: 40,
     isSold: false,
+    isFavourite: false,
     img: "assets/media/images/cat3.png"
   },
   {
@@ -61,6 +66,7 @@ let cats = [
     price: 10000,
     isDiscount: false,
     isSold: true,
+    isFavourite: false,
     img: "assets/media/images/cat2.png"
   }
 ];
@@ -69,9 +75,9 @@ function renderData(data) {
   $catsList.innerHTML = `
     ${data.map((cat) => {
       return `
-        <div class="cats__list_cat">
+        <div class="cats__list_cat" id="${cat.id}">
           ${cat.isDiscount ? `<p class="cat__discount">-${cat.isDiscount}%</p>` : ''}
-          <img src="./assets/media/icons/favourite.png" alt="favourite" class="cat__favourite">
+          <img src="${!cat.isFavourite ? './assets/media/icons/favourite.png' : './assets/media/icons/favourite-active.png'}" alt="favourite" class="cat__favourite">
           <div class="cat__imgContainer">
             <img src="${cat.img}" alt="cat" class="cat__img">
           </div>
@@ -103,12 +109,13 @@ function renderData(data) {
         </div>
       `
     }).join('')}
-  `
+  `;
+  
+  const $catFavouriteButtons = document.querySelectorAll('.cat__favourite');
+  $catFavouriteButtons.forEach(favouriteProcess);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderData(cats);
-});
+renderData(cats);
 
 $sortByPrice.addEventListener('click', sortByPrice);
 
@@ -123,3 +130,31 @@ function sortByOld() {
   cats.sort((a, b) => a.old - b.old);
   renderData(cats);
 }
+
+function favouriteProcess(favBtn) {
+  favBtn.addEventListener('click', function() {
+    const chosenCatId = this.parentElement.id;
+
+    if(favBtn.src.includes('active')) {
+      favBtn.src = './assets/media/icons/favourite.png' ;
+    } else {
+      favBtn.src = './assets/media/icons/favourite-active.png';
+    }
+
+    const newCats = cats.map((cat) => {
+      return {
+        ...cat,
+        isFavourite: chosenCatId == cat.id ? !cat.isFavourite : cat.isFavourite
+      }
+    })
+    cats = newCats;
+    console.log(cats);
+  });
+}
+
+function validateEmail(email)  {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+    
+console.log(validateEmail('anystrng@anystring.gas'));
