@@ -233,4 +233,12 @@ window.addEventListener('scroll', () => {
   } else {
     $scrollUpBtn.setAttribute('class', 'scroll-up-container hide');
   }
-})
+});
+
+// Burger menu
+const $burgerMenuBtn = document.querySelector('.burgerMenu-btn');
+const $burgerMenu = document.querySelector('.header__nav_burgerMenu');
+
+$burgerMenuBtn.addEventListener('click', () => {
+  $burgerMenu.classList.toggle('collapsed');
+});

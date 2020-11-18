@@ -45,12 +45,12 @@
     margin-top: 10px;
     margin-right: 30px;
   }
-  .header__contact_additional {
+  /* .header__contact_additional {
     right: unset;
     left: 0;
     text-align: center;
     width: 100%;
-}
+  } */
 
   .cats__list_cat {
     width: calc(50% - 20px);
@@ -61,6 +61,25 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .header__nav {
+    position: relative;
+  }
+  .header__nav_list {
+    display: none;
+  }
+  .header__contact {
+    margin-right: 0;
+  }
+  .burgerMenu-btn {
+    display: inline-flex;
+  }
+  .header__nav_burgerMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
   .cats__list_cat {
     width: 100%;
   }
