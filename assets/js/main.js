@@ -190,6 +190,7 @@ function removeModal() {
 
 // Email validation
 const $emailField = document.querySelector('.footer__form_fields_input');
+const $form = document.querySelector('.footer__form');
 
 const inputData = {
   email: '',
@@ -221,6 +222,16 @@ function emailColoring() {
     }
   }
 }
+
+$form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const {email} = inputData;
+  if(validateEmail(email)) {
+    alert('Спасибо за подписку.');
+  } else {
+    alert('Ваш email адрес не соответствует требованиям.');
+  }
+})
 
 
 // Scroll up button
