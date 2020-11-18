@@ -1,7 +1,9 @@
+//Globals
 const $catsList = document.querySelector('.cats__list');
 const $sortByPrice = document.querySelector('.sort__price');
 const $sortByOld = document.querySelector('.sort__old');
 
+// "data"
 let cats = [
   {
     id: 1,
@@ -117,6 +119,7 @@ function renderData(data) {
 
 renderData(cats);
 
+// Sort process
 $sortByPrice.addEventListener('click', sortByPrice);
 
 function sortByPrice() {
@@ -130,6 +133,10 @@ function sortByOld() {
   cats.sort((a, b) => a.old - b.old);
   renderData(cats);
 }
+
+
+// Notification porcess
+const $notification = document.createElement('div');
 
 function favouriteProcess(favBtn) {
   favBtn.addEventListener('click', function() {
@@ -146,15 +153,72 @@ function favouriteProcess(favBtn) {
         ...cat,
         isFavourite: chosenCatId == cat.id ? !cat.isFavourite : cat.isFavourite
       }
-    })
+    });
     cats = newCats;
-    console.log(cats);
+
+    createModal(this.src.includes('active'));
+    setTimeout(showModal, 0)
+    setTimeout(hideModal, 3000);
+    setTimeout(removeModal, 4000);
+
   });
 }
+
+function createModal(isAdded) {
+  $notification.setAttribute('class', 'notification');
+  document.body.appendChild($notification);
+  if(isAdded) {
+    $notification.innerHTML = 'Добавлено в "избранное".';
+  } else {
+    $notification.innerHTML = 'Удалено из "избранного".';
+  }
+}
+
+function showModal() {
+  $notification.classList.add('active');
+}
+
+function hideModal() {
+  $notification.classList.remove('active');
+}
+
+function removeModal() {
+  document.body.removeChild($notification);
+  $notification.innerHTML = '';
+}
+
+
+// Email validation
+const $emailField = document.querySelector('.footer__form_fields_input');
+
+const inputData = {
+  email: '',
+  isTouched: false
+};
 
 function validateEmail(email)  {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 }
-    
-console.log(validateEmail('anystrng@anystring.gas'));
+
+$emailField.addEventListener('input', emailInput);
+
+function emailInput(e) {
+  inputData[e.target.name] = e.target.value;
+  if(inputData.isTouched === false) {
+    inputData.isTouched = true;
+  }
+  console.log(inputData.email);
+  emailColoring();
+}
+
+function emailColoring() {
+  const {email, isTouched} = inputData;
+  if(isTouched) {
+    if(validateEmail(email)) {
+      $emailField.setAttribute('class', 'footer__form_fields_input valid');
+    } else {
+      $emailField.setAttribute('class', 'footer__form_fields_input invalid');
+    }
+  }
+}

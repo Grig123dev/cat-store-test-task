@@ -1,5 +1,6 @@
 html, body {
   font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -308,8 +309,26 @@ footer {
   line-height: 17px;
   border-radius: 10px;
   outline: none;
-  border: none;
+  border: solid 1px transparent;
   width: 300px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -moz-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -ms-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.footer__form_fields_input:focus {
+  border-color: #66afe9;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.footer__form_fields_input.valid:focus {
+  border-color: #5aec3d;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(161, 233, 102, 0.6);
+}
+.footer__form_fields_input.invalid:focus {
+  border-color: #ec3d3d;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(233, 102, 102, 0.6);
 }
 .footer__form_fields_input::placeholder {
   color: #000000;
@@ -448,4 +467,38 @@ footer {
 
 .b-contain:first-child .b-input::before {
 	visibility: hidden;
+}
+
+
+/*
+*** notification
+*/
+.notification {
+  position: fixed;
+  z-index: 99;
+  right: -100px;
+  top: 15px;
+  max-width: 210px;
+  width: 100%;
+  padding: 15px;
+  font-size: 12px;
+  background-color: #ffffff;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: solid 1px #222222;
+  transition: all .3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+}
+.notification.active {
+  right: 15px;
+  opacity: 1;
+  visibility: visible;
 }
