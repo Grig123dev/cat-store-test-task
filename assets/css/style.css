@@ -580,6 +580,9 @@ footer {
   border: none;
   outline: none;
 }
+.burgerMenu-btn:hover {
+  cursor: pointer;
+}
 .bergerMenu-bar {
   width: 20px;
   height: 3px;
