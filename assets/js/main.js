@@ -222,3 +222,18 @@ function emailColoring() {
     }
   }
 }
+
+
+// Scroll up button
+const $scrollUpBtn = document.querySelector('.scroll-up-container');
+window.addEventListener('scroll', () => {
+  const $header = document.getElementById('header');
+  const headerHeight = $header.getBoundingClientRect().height;
+  // console.group(headerHeight);
+  // console.log(window.pageYOffset)
+  if(window.pageYOffset > headerHeight) {
+    $scrollUpBtn.setAttribute('class', 'scroll-up-container');
+  } else {
+    $scrollUpBtn.setAttribute('class', 'scroll-up-container hide');
+  }
+})

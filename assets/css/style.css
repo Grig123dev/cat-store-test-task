@@ -471,7 +471,7 @@ footer {
 
 
 /*
-*** notification
+* notification
 */
 .notification {
   position: fixed;
@@ -501,4 +501,55 @@ footer {
   right: 15px;
   opacity: 1;
   visibility: visible;
+}
+
+
+/*
+* Scroll up
+*/
+.scroll-up-container {
+  position: fixed;
+  z-index: 198;
+  width: 1280px;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .3s linear, visibility .3s linear;
+  -webkit-transition: opacity .3s linear, visibility .3s linear;
+  -moz-transition: opacity .3s linear, visibility .3s linear;
+  -ms-transition: opacity .3s linear, visibility .3s linear;
+  -o-transition: opacity .3s linear, visibility .3s linear;
+}
+.scroll-up-container.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+.scroll-up {
+  position: relative;
+  width: 59px;
+  height: 59px;
+  background-color: #6EBBD3;
+  /* z-index: 199; */
+  /* right: 0; */
+}
+
+.scroll-up img {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
 }
