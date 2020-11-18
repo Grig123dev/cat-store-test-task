@@ -76,7 +76,7 @@
   .header__nav_burgerMenu {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
   }
 
@@ -87,6 +87,7 @@
   footer {
     padding-bottom: 32px;
   }
+
 }
 
 @media only screen and (max-width: 645px) {
@@ -145,6 +146,10 @@
 
   footer {
     padding-top: 40px;
+    padding-bottom: 0;
+  }
+  footer .container {
+    width: 100%;
   }
   .footer__content {
     padding: 33px 30px;
