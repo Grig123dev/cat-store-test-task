@@ -208,7 +208,6 @@ function emailInput(e) {
   if(inputData.isTouched === false) {
     inputData.isTouched = true;
   }
-  console.log(inputData.email);
   emailColoring();
 }
 
@@ -229,8 +228,6 @@ const $scrollUpBtn = document.querySelector('.scroll-up-container');
 window.addEventListener('scroll', () => {
   const $header = document.getElementById('header');
   const headerHeight = $header.getBoundingClientRect().height;
-  // console.group(headerHeight);
-  // console.log(window.pageYOffset)
   if(window.pageYOffset > headerHeight) {
     $scrollUpBtn.setAttribute('class', 'scroll-up-container');
   } else {
